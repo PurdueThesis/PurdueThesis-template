@@ -1,0 +1,131 @@
+USING GIT WITH OVERLEAF
+Mark Senn
+revised  using-git-with-overleaf.txt  2024-10-20  Mark Senn  http://engineering.purdue.edu/~mark
+created  using-git-with-overleaf.txt  2024-10-20  Mark Senn  http://engineering.purdue.edu/~mark
+
+
+GIT
+
+# The first time, AND ONLY THE FIRST NAME, I deleted the repository.
+# On github.com
+#   Login to github.com
+#   Get in template repo.
+#   Do Settings
+#     Delete this repository
+#     I want to delete this repository
+#     I have read and understand these effects
+#     PurdueThesis/PurdueThesis-template
+#     Delete this repository
+#     Confirm
+# On md
+    cd PurdueThesis/PurdueThesis-template
+    rm -rf .git
+
+git config --global init.defaultBranch master
+git config user.email mark@purdue.edu
+git config user.name PurdueThesis
+
+git status
+
+# From
+#   https://docs.github.com/en/github-cli/github-cli/quickstart
+gh auth login
+# ? What account do you want to log into? GitHub.com
+# ? You're already logged into github.com. Do you want to re-authenticate? Yes
+# ? What is your preferred protocol for Git operations? HTTPS
+# ? Authenticate Git with your GitHub credentials? Yes
+# ? How would you like to authenticate GitHub CLI? Login with a web browser
+# ! First copy your one-time code: EF60-476B
+# Press Enter to open github.com in your browser...
+# Gtk-Message: 14:17:01.101: Not loading module "atk-bridge": The functionality is provided by GTK natively. Please try to not load it.
+# ✓ Authentication complete.
+# - gh config set -h github.com git_protocol https
+# ✓ Configured git protocol
+# ✓ Logged in as PurdueThesis
+
+git init
+
+gh repo create
+# ? What would you like to do? Push an existing local repository to GitHub
+# ? Path to local repository .
+# ? Repository name PurdueThesis-template
+# ? Description PurdueThesis-template
+# ? Visibility Public
+# ✓ Created repository PurdueThesis/PurdueThesis-template on GitHub
+# ? Add a remote? No
+
+#### git remote add pt https://github.com/PurdueThesis/template
+
+git add *
+
+git status
+
+git commit -a
+Inital commit.
+
+git push
+
+git push --set-upstream pt master
+
+gh status
+
+gh repo
+
+git status
+
+
+-----
+
+
+# Commit single file.
+# git config --global alias.cm "commit --allow-empty-message -m ''"
+# OR
+# Commit multiple files with comment.
+# git commit
+# Commit all files without comment.
+git config --global alias.cm "commit -a --allow-empty-message -m ''"
+
+git remote add pt https://github.com/PurdueThesis/template
+
+git push pt
+
+# Publish your local commits to repo.
+git push
+
+gh auth login
+
+gh repo view PurdueThesis/template
+gh repo view OWNER/REPO
+
+git status
+
+git init template
+cd project1
+# create file1.txt
+git add file1.txt
+git commit -m'My first commit'
+
+https://git-scm.com/docs/gittutorial
+
+$ get commit -a
+will add and commit all modified files
+
+make PT a shorthand for /home/mark/PurdueThesis
+$ git remote add PT /home/mark/PurdueThesis
+
+to delete a file from a git repo
+$ git rm --cached file1.txt
+https://stackoverflow.com/questions/2047465/how-do-i-delete-a-file-from-a-git-repository
+
+
+OVERLEAF
+
+See
+  https://www.overleaf.com/learn/how-to/Git_integration
+
+# git clone https://git.overleaf.com/5b98...
+
+
+
+
+
